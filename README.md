@@ -1,46 +1,68 @@
-# Getting Started with Create React App
+# Поиск фильмов на React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Это приложение поиска фильмов на React, которое использует OMDB API для получения данных о фильмах. Вы можете искать фильмы по названию и сохранять их в список просмотра.
 
-## Available Scripts
+## Как работать с приложением
 
-In the project directory, you can run:
+1. Клонируйте репозиторий на свой компьютер.
+2. Выполните `npm install` для установки зависимостей.
+3. Получите ключ API с помощью регистрации на [OMDB API](http://www.omdbapi.com/).
+4. Создайте файл `.env` в корневой директории и добавьте в него строку `REACT_APP_API_KEY=[your_api_key]`.
+5. Выполните `npm start` для запуска локального сервера.
 
-### `npm start`
+## Основные компоненты
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### SearchBar
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Этот компонент предназначен для поиска фильмов по названию. Он использует OMDB API, чтобы получить данные о фильмах и передать их в MovieList.
 
-### `npm test`
+### MovieList
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Этот компонент отображает список фильмов, полученных в результате поиска. Он вызывает MovieCard для каждого фильма.
 
-### `npm run build`
+### MovieCard
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Этот компонент отображает краткую информацию о фильме, такую как название, рейтинг, обзоры и трейлеры. Он также содержит кнопку "Добавить в список просмотра", которая позволяет добавлять фильмы в список для дальнейшего просмотра.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### WatchList
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Этот компонент отображает список фильмов в списке для просмотра. Он вызывает MovieCard для каждого фильма.
 
-### `npm run eject`
+## Структура приложения
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+my-movie-app/
+  node_modules/
+  public/
+    index.html
+    manifest.json
+    favicon.ico
+  src/
+    components/
+      App.tsx
+      Header.tsx
+      MovieCard.tsx
+      MovieList.tsx
+      SearchBar.tsx
+      WatchList.tsx
+    mock/
+      mock.ts
+    services/
+      Service.ts
+    App.test.tsx
+    index.tsx
+    Router.tsx
+  package.json
+  README.md
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Компоненты приложения находятся в папке `components`, сервисы для взаимодействия с API - в папке `services`, стили - в папке `styles`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+`Router.js` содержит маршруты для страниц приложения. `index.js` является точкой входа в приложение. `App.test.js` содержит тесты для компонента `App`. Файлы в папке `public` используются для настройки окружения React приложения.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Файл `package.json` содержит информацию о проекте и его зависимостях, которые устанавливаются при помощи `npm install`. В корневой директории может находиться файл README.md с описанием проекта.
 
-## Learn More
+## Заключение
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Благодарим вас за использование нашего приложения поиска фильмов! Если у вас есть какие-либо вопросы или замечания, пожалуйста, свяжитесь со мной!
+qt20130@gmail.com
